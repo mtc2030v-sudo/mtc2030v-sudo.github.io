@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>دَينلي — تطبيق تسجيل الديون</title>
+  <meta name="description" content="دَينلي (Daynly) — تطبيق بسيط لإدارة وتسجيل الديون، مع نسخ احتياطية على Google Drive ومصادقة بالبصمة." />
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #061027;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --text: #e6eef8;
+      --accent: #3b82f6; /* أزرق واضح */
+      --accent-2: #06b6d4; /* تركوازي ثانوي */
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --container: 920px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Noto Sans Arabic", "Segoe UI", Roboto, system-ui, sans-serif;
+      background: linear-gradient(180deg,var(--bg1),var(--bg2) 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      padding:36px 16px;
+    }
+    .wrap{max-width:var(--container); margin:0 auto}
+    header{
+      text-align:center;
+      margin-bottom:18px;
+    }
+    .logo{
+      display:inline-flex;
+      gap:12px;
+      align-items:center;
+      justify-content:center;
+    }
+    .mark{
+      width:64px;height:64px;border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:inline-grid;place-items:center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      font-weight:800;color:white;font-size:22px;
+    }
+    h1{margin:10px 0 6px;font-size:26px;letter-spacing:0.2px}
+    p.lead{color:var(--muted); margin:0 0 18px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+    }
+
+    @media(min-width:880px){
+      .grid{grid-template-columns: 1fr 360px;}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      padding:18px;
+      border-radius:var(--radius);
+      box-shadow: 0 12px 30px rgba(2,6,23,0.55);
+    }
+
+    .features{display:flex;flex-direction:column;gap:12px}
+    .feature{
+      display:flex;gap:12px;align-items:flex-start;
+      background:var(--glass);padding:12px;border-radius:10px;
+      border:1px solid rgba(255,255,255,0.01);
+    }
+    .ic{
+      min-width:46px;min-height:46px;border-radius:10px;
+      background:rgba(255,255,255,0.03); display:grid;place-items:center;
+      font-size:20px;color:var(--accent);
+    }
+    .fhead{font-weight:700;margin-bottom:6px}
+    .muted{color:var(--muted);font-size:14px}
+
+    .sidebar .card{position:sticky; top:28px;}
+    .meta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;
+      text-decoration:none;font-weight:600;
+    }
+    .btn-primary{background:var(--accent);color:white;box-shadow:0 8px 18px rgba(59,130,246,0.18)}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06); color:var(--text); background:transparent}
+    .small{font-size:13px;padding:8px 10px;border-radius:8px}
+
+    ol.steps{padding-left:18px;margin:8px 0 0}
+    ol.steps li{margin:10px 0;color:var(--muted)}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03); color:var(--muted); font-size:13px}
+    .k{color:var(--accent);font-weight:700}
+    .note{background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);color:var(--muted);font-size:14px}
+    .links{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+    a.link{color:var(--accent);text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="mark">دَ</div>
+        <div style="text-align:left">
+          <h1>دَينلي — تطبيق تسجيل وإدارة الديون</h1>
+          <p class="lead">سهل، آمن، وخفيف — سجّل ديونك، استرجع نسخك الاحتياطية على Google Drive، وفوّق الدفع بلمسة بصمة.</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- العمود الأيسر: المحتوى -->
+      <div>
+        <section class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div>
+              <div class="badge">نسخة مبسطة</div>
+              <div style="margin-top:8px;font-weight:700">ما هو دَينلي؟</div>
+            </div>
+            <div class="meta-row">
+              <!-- استبدل href بقيم فعلية عند توفرها -->
+              <a class="btn btn-primary" href="#" title="تحميل APK">تحميل APK</a>
+              <a class="btn btn-ghost" href="https://username.github.io/privacy.html" title="سياسة الخصوصية" target="_blank">سياسة الخصوصية</a>
+            </div>
+          </div>
+
+          <hr style="border:none;height:1px;background:rgba(255,255,255,0.02);margin:14px 0">
+
+          <p class="muted">
+            دَينلي هو تطبيق محمول مُصمَّم لتسجيل الديون، تتبّع المدفوعات، وإدارة علاقات الدين بينك وبين الأشخاص. واجهة بسيطة تضمن تسجيل سريع وآمن، مع خيار نسخ احتياطي على Google Drive لاستعادة بياناتك عند تغيير الجهاز.
+          </p>
+
+          <h3 style="margin-top:14px">الميزات الرئيسية</h3>
+          <div class="features">
+            <div class="feature">
+              <div class="ic">📋</div>
+              <div>
+                <div class="fhead">سجل دين سهل</div>
+                <div class="muted">أضف اسم، مبلغ، ملاحظة، ورقم جوال — سجّل العملية بسرعة.</div>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="ic">🔁</div>
+              <div>
+                <div class="fhead">نسخ احتياطي واستعادة</div>
+                <div class="muted">احفظ نسخة احتياطية على Google Drive، أو استرجعها بكل أمان دون فقدان بيانات.</div>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="ic">🔒</div>
+              <div>
+                <div class="fhead">أمان</div>
+                <div class="muted">البيانات تُخزّن محليًا على جهازك. نسخ Drive تقتصر على ملف النسخة الاحتياطية فقط.</div>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="ic">👌</div>
+              <div>
+                <div class="fhead">مصادقة سريعة</div>
+                <div class="muted">دعم البصمة/قفل الجهاز لفتح التطبيق بسرعة وبأمان.</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:18px">كيف أستخدم التطبيق؟</h3>
+          <ol class="steps">
+            <li>نصّب التطبيق على هاتفك (APK أو من المتجر).</li>
+            <li>افتح التطبيق وأضف اسم الشخص والمبلغ والملاحظة (اختياري).</li>
+            <li>استخدم زر "نسخة جديدة" لرفع نسخة احتياطية إلى Google Drive.</li>
+            <li>لاستعادة: افتح شاشة Google Drive داخل التطبيق واختر النسخة التي تريد استعادتها.</li>
+            <li>لزيادة الأمان: فعّل قفل التطبيق بالبصمة من إعدادات الجهاز.</li>
+          </ol>
+
+          <h3 style="margin-top:18px">ملاحظات فنية للمختبرين</h3>
+          <p class="note">
+            عند تفعيل النسخ السحابي التطبيق يطلب صلاحية <code>drive.file</code> من Google. أثناء التطوير، إذا رأيت رسالة "التطبيق قيد الاختبار" أضف بريدك كـ Test user في صفحة Google Cloud → OAuth consent screen.
+          </p>
+
+          <h3 style="margin-top:18px">شكرًا لاستخدامك دَينلي</h3>
+          <p class="muted">لو عندك اقتراح، بلّغنا — الدعم موجود للرد على أي استفسار.</p>
+
+        </section>
+
+        <section class="card" style="margin-top:14px">
+          <h3>أسئلة شائعة</h3>
+          <div style="margin-top:10px">
+            <strong>هل تشارك بياناتي مع طرف ثالث؟</strong>
+            <p class="muted">لا. البيانات مخزّنة محليًا. النسخ على Drive تخزّن ملفًا واحدًا في حسابك فقط.</p>
+
+            <strong>ماذا لو فقدت هاتفي؟</strong>
+            <p class="muted">إن كان لديك نسخة احتياطية على Drive يمكنك استعادتها بعد تثبيت التطبيق على جهاز جديد.</p>
+
+            <strong>هل التطبيق يحتاج اتصال دائم بالإنترنت؟</strong>
+            <p class="muted">لا. الوظيفية الأساسية تعمل أوفلاين. تحتاج الإنترنت فقط للنسخ الاحتياطي على Drive أو تسجيل الدخول عبر Google.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- العمود الأيمن: الشريط الجانبي -->
+      <aside class="sidebar">
+        <div class="card">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:58px;height:58px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-weight:800;color:white">دَ</div>
+            <div>
+              <div style="font-weight:800">دَينلي (Daynly)</div>
+              <div class="muted" style="font-size:13px">إدارة الديون البسيطة</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="muted">آخر تحديث:</div>
+            <div style="font-weight:700;margin-top:6px" id="updated">—</div>
+          </div>
+
+          <div class="links">
+            <a class="link" href="https://username.github.io/privacy.html" target="_blank">📄 سياسة الخصوصية</a>
+            <a class="link" href="#" target="_blank">⬇️ تحميل APK</a>
+            <a class="link" href="mailto:you@example.com">✉️ تواصل معنا</a>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="muted">معلومات تقنية</div>
+            <div style="margin-top:8px;font-size:14px;color:var(--text)">
+              <div>نسخة التطبيق: <span class="k">1.0.0</span></div>
+              <div>النسخ الاحتياطي: Google Drive (drive.file)</div>
+            </div>
+          </div>
+
+          <hr style="border:none;height:1px;background:rgba(255,255,255,0.02);margin:12px 0">
+
+          <div style="margin-top:6px">
+            <div class="muted">تعليمات سريعة</div>
+            <ol style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+              <li>ارفع privacy.html إلى GitHub Pages.</li>
+              <li>أضف <code>github.io</code> كـ Authorized domain في Google Cloud.</li>
+              <li>ضع رابط privacy في OAuth consent screen.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <h4>دعم & تواصل</h4>
+          <p class="muted">للمشاكل التقنية أو طلبات التحقق، راسلنا على:</p>
+          <p style="margin-top:8px"><a class="link" href="mailto:you@example.com">you@example.com</a></p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> دَينلي — كل الحقوق محفوظة.
+    </footer>
+  </div>
+
+  <script>
+    // ضع هنا التاريخ التلقائي
+    const d = new Date();
+    document.getElementById('year').textContent = d.getFullYear();
+    document.getElementById('updated').textContent = d.toLocaleDateString('ar-EG', { year:'numeric', month:'long', day:'numeric' });
+
+    // NOTE: استبدل 'username' و 'you@example.com' والروابط الحمراء في الكود برابطك الفعلي قبل الرفع.
+    // مثال: https://YOUR_GITHUB_USERNAME.github.io/privacy.html
+  </script>
+</body>
+</html>
