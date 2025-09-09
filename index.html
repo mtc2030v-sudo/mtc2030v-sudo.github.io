@@ -4,60 +4,82 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>دَينلي — إدارة وتسجيل الديون</title>
-  <meta name="description" content="دَينلي — تطبيق بسيط لإدارة وتسجيل الديون مع خيار النسخ الاحتياطي إلى Google Drive والمصادقة بالبصمة." />
+  <meta name="description" content="دَينلي — تطبيق بسيط لإدارة وتسجيل الديون مع نسخ احتياطية على Google Drive والمصادقة بالبصمة." />
+
+  <!-- خط مناسب للعربي وحديث: Cairo + Inter كاحتياط -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg: #f7fafc;
-      --card: #ffffff;
-      --muted: #6b7280;
-      --text: #0f172a;
-      --accent: #2563eb; /* أزرق لطيف */
-      --radius: 14px;
-      --maxw:900px;
-      --gap:14px;
-      --shadow: 0 8px 24px rgba(16,24,40,0.06);
+      --bg: #0b0f16;
+      --panel: #0f1720;
+      --muted: #9aa4b2;
+      --text: #e6eef8;
+      --accent: #3b82f6;   /* أزرق عصري */
+      --accent-2: #06b6d4; /* تركوازي ثانوي */
+      --glass: rgba(255,255,255,0.02);
+      --radius: 12px;
+      --container: 980px;
+      --shadow: 0 10px 30px rgba(2,6,23,0.6);
     }
+
     *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family: "Noto Sans Arabic", "Segoe UI", Roboto, system-ui, sans-serif; background:var(--bg); color:var(--text)}
-    .wrap{max-width:var(--maxw); margin:28px auto; padding:20px}
-    header{display:flex;gap:12px;align-items:center}
+    html,body{height:100%; margin:0; background: linear-gradient(180deg,#06070a 0%, #0b0f16 60%); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    body{font-family: "Cairo", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Arabic", sans-serif; line-height:1.6; padding:36px 16px;}
+
+    .wrap{max-width:var(--container); margin:0 auto}
+    header{display:flex;gap:14px;align-items:center}
     .logo{
-      width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);
-      display:grid;place-items:center;flex:0 0 72px; overflow:hidden;
-      box-shadow:var(--shadow);
+      width:68px;height:68px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;flex:0 0 68px; overflow:hidden; box-shadow:var(--shadow);
     }
-    .logo img{width:100%;height:100%;object-fit:cover;display:block}
-    h1{margin:0;font-size:20px}
+    .logo img{width:86%;height:86%;object-fit:contain;display:block}
+
+    h1{margin:0;font-size:22px;font-weight:700}
     p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
-    main{margin-top:18px;display:grid;grid-template-columns:1fr;gap:var(--gap)}
-    @media(min-width:880px){ main{grid-template-columns:1fr 320px} }
 
-    .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
-    .row{display:flex;gap:12px;align-items:center}
-    .feature{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;background:#f8fafc;border:1px solid rgba(15,23,42,0.03)}
-    .icon{width:44px;height:44px;border-radius:10px;background:rgba(37,99,235,0.09);display:grid;place-items:center;font-size:18px;color:var(--accent)}
-    .muted{color:var(--muted);font-size:14px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
-    .btn-primary{background:var(--accent);color:white;box-shadow:0 8px 18px rgba(37,99,235,0.12)}
-    .btn-outline{border:1px solid rgba(15,23,42,0.06);color:var(--text);background:transparent}
-    ol{padding-inline-start:18px;margin:8px 0;color:var(--muted)}
-    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+    main{margin-top:20px;display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:900px){ main{grid-template-columns:1fr 320px} }
 
-    .small-note{font-size:13px;color:var(--muted);margin-top:8px}
-    a.link{color:var(--accent);text-decoration:none}
-    .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015)); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,0.03)}
+    .section-title{font-size:15px;font-weight:700;margin-bottom:8px}
+    .muted{color:var(--muted); font-size:14px}
+
+    .features{display:grid;gap:10px}
+    .feature{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;background:var(--panel);border:1px solid rgba(255,255,255,0.02)}
+    .icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(180deg, rgba(59,130,246,0.12), rgba(6,182,212,0.08)); display:grid;place-items:center;font-size:18px;color:var(--accent);}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; box-shadow: 0 8px 20px rgba(11,22,40,0.6)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04); color:var(--text)}
+
+    ol.steps{padding-inline-start:18px;margin:8px 0;color:var(--muted)}
+    ol.steps li{margin:8px 0}
+
+    .note{background:rgba(255,255,255,0.015); padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.02); color:var(--muted); font-size:14px}
+
+    .sidebar .card{position:sticky; top:28px}
+    .links{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+    a.link{color:var(--accent); text-decoration:none; font-weight:600}
+
+    footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* small helpers */
+    code{background:rgba(255,255,255,0.02); padding:3px 6px; border-radius:6px; color:var(--text); font-size:13px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <!-- الشعار: ضع ملف logo.png في root من مستودع GitHub -->
-      <div class="logo" title="شعار التطبيق">
-        <img src="logo.png" alt="شعار دَينلي (logo)" onerror="this.style.display='none'">
+      <!-- ضع ملف logo.png في جذر المستودع (root) -->
+      <div class="logo" title="شعار دَينلي">
+        <img src="logo.png" alt="شعار دَينلي" onerror="this.style.display='none'">
       </div>
+
       <div>
         <h1>دَينلي — إدارة وتسجيل الديون</h1>
-        <p class="lead">سجّل الديون، تابع المدفوعات، واحتفظ بنسخة احتياطية على Google Drive — بسيط وآمن.</p>
+        <p class="lead">سجّل الديون، تابع المدفوعات، واحتفظ بنسخ احتياطية آمنة على Google Drive — تصميم بسيط وعصري.</p>
       </div>
     </header>
 
@@ -66,23 +88,25 @@
       <section class="card">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
           <div>
-            <div style="font-weight:800">نبذة سريعة</div>
-            <div class="small-note">تطبيق محمول خفيف ومُصمَّم لتسجيل الديون والمتابعات الشخصية.</div>
+            <div class="section-title">لماذا دَينلي؟</div>
+            <div class="muted">تطبيق خفيف ومباشر موجه لتنظيم الديون الشخصية والعائلية بسرعة وأمان.</div>
           </div>
+
           <div class="meta">
-            <a class="btn btn-primary" href="#" title="تحميل التطبيق">تحميل APK</a>
-            <a class="btn btn-outline" href="https://username.github.io/privacy.html" target="_blank">سياسة الخصوصية</a>
+            <!-- روابط قابلة للتعديل -->
+            <a class="btn btn-primary" href="#" title="تحميل APK">⬇ تحميل التطبيق</a>
+            <a class="btn btn-ghost" href="https://username.github.io/privacy.html" target="_blank" rel="noopener">📄 سياسة الخصوصية</a>
           </div>
         </div>
 
-        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(15,23,42,0.04)">
+        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
 
-        <div style="display:grid;gap:12px">
-          <div class="feature">
+        <div class="features" aria-hidden="false">
+          <div class="feature" role="group" aria-label="سجل دين سريع">
             <div class="icon">📋</div>
             <div>
               <div style="font-weight:700">سجل دين سريع</div>
-              <div class="muted">أضف اسم، مبلغ، ملاحظة ورقم. واجهة مريحة وسهلة الاستخدام.</div>
+              <div class="muted">أضف اسم، مبلغ، ملاحظة ورقم الهاتف—واجهة سهلة تُسرّع عملية الإدخال.</div>
             </div>
           </div>
 
@@ -90,85 +114,85 @@
             <div class="icon">🔁</div>
             <div>
               <div style="font-weight:700">نسخ احتياطي على Drive</div>
-              <div class="muted">اختياري وآمن — الملف يُخزّن في حساب Google الخاص بك فقط (drive.file).</div>
+              <div class="muted">اختياري: احفظ ملف النسخة الاحتياطية في حسابك على Google Drive باستخدام صلاحية <code>drive.file</code>.</div>
             </div>
           </div>
 
           <div class="feature">
             <div class="icon">🔒</div>
             <div>
-              <div style="font-weight:700">أمان وخصوصية</div>
-              <div class="muted">البيانات مخزنة محليًا. النسخ السحابي تُنشأ ملفًا واحدًا للنسخة الاحتياطية.</div>
+              <div style="font-weight:700">خصوصية وأمان</div>
+              <div class="muted">البيانات تُخزّن محليًا، والنسخ السحابية تُنشأ ملفًا واحدًا فقط في حسابك.</div>
             </div>
           </div>
 
           <div class="feature">
             <div class="icon">👌</div>
             <div>
-              <div style="font-weight:700">مصادقة بالبصمة</div>
-              <div class="muted">دعم فتح التطبيق بالبصمة أو رمز الجهاز لتحسين الأمان.</div>
+              <div style="font-weight:700">فتح سريع وآمن</div>
+              <div class="muted">ادعم المصادقة بالبصمة أو رمز الجهاز لسرعة وأمان عند فتح التطبيق.</div>
             </div>
           </div>
         </div>
 
         <h3 style="margin-top:14px">كيف أبدأ؟</h3>
-        <ol>
-          <li>نزّل التطبيق وثبّته على هاتفك.</li>
+        <ol class="steps">
+          <li>نزّل وثبّت التطبيق (APK) على هاتفك.</li>
           <li>افتح التطبيق وأضف دينًا جديدًا عبر زر "إضافة دين".</li>
           <li>لتفعيل النسخ: افتح شاشة النسخ إلى Google Drive وامنح الإذن عند الطلب.</li>
-          <li>لاستعادة: اختر الملف المناسب من قائمة النسخ داخل التطبيق.</li>
+          <li>لاستعادة البيانات: اختر الملف المناسب من قائمة النسخ داخل التطبيق.</li>
         </ol>
 
-        <div class="small-note">
-          ملاحظة: أثناء التطوير، إن ظهرت رسالة "التطبيق قيد الاختبار" أضف بريدك كـ Test user في Google Cloud → OAuth consent screen. بعد التجربة يمكنك التقدّم للتحقق لجعل التطبيق متاحًا للعامة.
+        <div class="note" style="margin-top:12px">
+          نصيحة للمطور/المختبر: أثناء التطوير، إن رأيت رسالة "التطبيق قيد الاختبار" أضف بريدك كمستخدم تجريبي (Test user) في Google Cloud → OAuth consent screen. وللنشر للعامة، قد تحتاج لرفع صفحة سياسة الخصوصية وإضافة النطاق <code>github.io</code> كـ Authorized domain في إعدادات OAuth.
         </div>
       </section>
 
-      <!-- الشريط الجانبي البسيط -->
-      <aside class="card">
+      <!-- الشريط الجانبي -->
+      <aside class="card sidebar">
         <div style="display:flex;gap:12px;align-items:center">
-          <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:grid;place-items:center;color:white;font-weight:800">دَ</div>
+          <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;font-weight:800">دَ</div>
           <div>
             <div style="font-weight:800">دَينلي</div>
-            <div class="muted" style="font-size:13px">إدارة الديون الشخصية</div>
+            <div class="muted" style="font-size:13px">نسخة مبسطة لإدارة الديون</div>
           </div>
         </div>
 
-        <div style="margin-top:12px">
-          <div style="font-weight:700">روابط مهمة</div>
-          <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
-            <a class="link" href="https://username.github.io/privacy.html" target="_blank">سياسة الخصوصية</a>
-            <a class="link" href="#" target="_blank">تحميل APK</a>
-            <a class="link" href="mailto:you@example.com">تواصل معنا</a>
+        <div style="margin-top:14px">
+          <div class="section-title">روابط سريعة</div>
+          <div class="links">
+            <a class="link" href="https://username.github.io/privacy.html" target="_blank">📄 سياسة الخصوصية</a>
+            <a class="link" href="#" target="_blank">⬇ تحميل APK</a>
+            <!-- WhatsApp link (رقم محفوظ لديك) -->
+            <a class="link" href="https://wa.me/967773095921" target="_blank" rel="noopener">💬 تواصل عبر واتساب</a>
+            <!-- بريد محفوظ لديك -->
+            <a class="link" href="mailto:Noohaljabri24@gmail.com">✉️ إرسال بريد إلكتروني</a>
           </div>
         </div>
 
-        <div style="margin-top:12px">
-          <div style="font-weight:700">تعليمات سريعة للنشر</div>
-          <div class="small-note">
-            1) ضع <code>index.html</code> و<code>logo.png</code> في مستودع <strong>username.github.io</strong>.<br>
-            2) فعّل GitHub Pages من فرع <code>main</code> (root).<br>
-            3) في Google Cloud > OAuth consent screen ضع رابط السياسة وأضف <code>github.io</code> كـ Authorized domain.
-          </div>
-        </div>
+        <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
 
-        <div style="margin-top:12px">
-          <div style="font-weight:700">مواصفات الشعار</div>
-          <div class="small-note">
-            - اسم الملف: <code>logo.png</code> (موجود في root).<br>
-            - ينصح: مربع، 256×256px، خلفية شفافة أو لون بسيط.
+        <div>
+          <div class="section-title" style="font-size:14px">مواصفات الشعار</div>
+          <div class="muted" style="font-size:13px;margin-top:8px">
+            - اسم الملف: <code>logo.png</code><br>
+            - مكانه: جذر repo (root).<br>
+            - الحجم الموصى به: 256×256px، خلفية شفافة أو لون بسيط.
           </div>
         </div>
       </aside>
     </main>
 
     <footer>
-      © <span id="year"></span> دَينلي — جميع الحقوق محفوظة · للمساعدة: <a class="link" href="mailto:you@example.com">you@example.com</a>
+      © <span id="year"></span> دَينلي — كل الحقوق محفوظة · للمساعدة: <a class="link" href="mailto:Noohaljabri24@gmail.com">Noohaljabri24@gmail.com</a>
     </footer>
   </div>
 
   <script>
+    // سنة تلقائية
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ملاحظة للمطور: استبدل 'username' في روابط privacy/download بروابطك الفعلية قبل النشر.
   </script>
 </body>
 </html>
