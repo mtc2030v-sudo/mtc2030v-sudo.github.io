@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سياسة الخصوصية – دَينلي (Daynly)</title>
+  <meta name="description" content="سياسة الخصوصية لتطبيق دَينلي (Daynly) لتسجيل الديون." />
+  <style>
+    :root{
+      --bg:#0f172a;        /* خلفية داكنة أنيقة */
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#3b82f6;    /* أزرق هادئ */
+      --border:#1f2937;
+      --radius:16px;
+      --maxw:840px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Sans Arabic","Tahoma",Arial,sans-serif;
+      background:linear-gradient(180deg,#0b1220, #0f172a 45%, #0b1220);
+      color:var(--text); line-height:1.7;
+    }
+    .wrap{max-width:var(--maxw); margin:auto; padding:28px 16px 64px}
+    header{
+      text-align:center; margin:18px auto 22px;
+    }
+    .badge{
+      display:inline-block; padding:6px 12px; border:1px solid var(--border);
+      color:var(--muted); border-radius:999px; font-size:12px; letter-spacing:.4px;
+      background:rgba(255,255,255,.02);
+    }
+    h1{
+      font-size:28px; margin:14px 0 6px; font-weight:800;
+      background:linear-gradient(90deg,#fff, #a5b4fc); -webkit-background-clip:text; color:transparent;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid var(--border); border-radius:var(--radius);
+      padding:22px; margin:16px 0; backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.03);
+    }
+    h2{font-size:20px; margin:8px 0 10px; color:#fff}
+    p{margin:8px 0; color:var(--text)}
+    ul{margin:8px 0 0 0; padding:0 18px}
+    li{margin:6px 0; color:var(--text)}
+    .muted{color:var(--muted)}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    code{background:#0b1220; padding:2px 6px; border-radius:8px; border:1px solid var(--border)}
+    footer{
+      margin-top:22px; text-align:center; color:var(--muted); font-size:13px;
+    }
+    .pill{
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--border); background:rgba(59,130,246,.08); color:#bfdbfe; font-size:12px
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="badge">سياسة الخصوصية</span>
+      <h1>دَينلي (Daynly)</h1>
+      <p class="muted">آخر تحديث: <span id="d"></span></p>
+    </header>
+
+    <section class="card">
+      <h2>مقدمة</h2>
+      <p>نحن نحترم خصوصيتك. تشرح هذه السياسة كيف يتعامل تطبيق <strong>دَينلي (Daynly)</strong> مع بياناتك عند استخدامه لتسجيل الديون.</p>
+    </section>
+
+    <section class="card">
+      <h2>ما البيانات التي نجمعها؟</h2>
+      <ul>
+        <li>بيانات الديون التي تُدخلها يدويًا (الأسماء، المبالغ، الملاحظات، الأرقام... إلخ) — <strong>تُخزَّن محليًا على جهازك</strong>.</li>
+        <li>نسخ احتياطية اختيارية على Google Drive عند تفعيلك لهذه الميزة.</li>
+        <li>معلومات تقنية أساسية لتسجيل الدخول عبر Google (عنوان البريد المرتبط بحسابك) إذا استخدمت النسخ الاحتياطي السحابي.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>كيف نستخدم البيانات؟</h2>
+      <ul>
+        <li>عرض وإدارة السجلّات داخل التطبيق على جهازك.</li>
+        <li>إنشاء نسخ احتياطية على Google Drive <span class="pill">اختياري</span> لتسهيل الاستعادة عند الحاجة.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>الأذونات والنطاقات (Scopes)</h2>
+      <p>إذا فعّلت النسخ السحابي فنطلب نطاق Google التالي فقط:</p>
+      <ul>
+        <li><code>https://www.googleapis.com/auth/drive.file</code> — لإنشاء ملفات النسخة الاحتياطية وإدارتها داخل مجلّد يخص التطبيق فقط. لا نصل لملفاتك الأخرى.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>مكان التخزين</h2>
+      <ul>
+        <li><strong>محليًا:</strong> قاعدة بيانات على جهازك.</li>
+        <li><strong>سحابيًا (اختياري):</strong> ملف نسخ احتياطي على Google Drive باسم يوضح تاريخ الإنشاء.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>مشاركة البيانات</h2>
+      <p>لا نشارك بياناتك مع أي طرف ثالث. الوصول للسحابة يتم مباشرة بين التطبيق وحسابك في Google.</p>
+    </section>
+
+    <section class="card">
+      <h2>الأمان</h2>
+      <ul>
+        <li>يعتمد التطبيق على وسائل أمان جهازك (مثل القفل والبصمة) إن فعّلتها.</li>
+        <li>اتصال Google يتم عبر بروتوكول HTTPS.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>الاحتفاظ والحذف</h2>
+      <ul>
+        <li>تتحكم أنت في بياناتك المحلية ويمكنك حذفها من داخل التطبيق أو عبر إعدادات الجهاز.</li>
+        <li>يمكنك حذف نسخ Google Drive يدويًا من حسابك في أي وقت.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>حقوقك</h2>
+      <ul>
+        <li>الاطلاع على بياناتك داخل التطبيق.</li>
+        <li>تعديلها أو حذفها.</li>
+        <li>إيقاف النسخ السحابي وقتما تشاء.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>التحديثات</h2>
+      <p>قد نحدث هذه السياسة من وقت لآخر. سنغيّر تاريخ "آخر تحديث" بالأعلى عند أي تعديل.</p>
+    </section>
+
+    <section class="card">
+      <h2>تواصل معنا</h2>
+      <p>لأي استفسار حول الخصوصية، راسلنا على:
+        <a href="mailto:you@example.com">you@example.com</a>
+      </p>
+    </section>
+
+    <footer>
+      <p>© <span id="y"></span> دَينلي (Daynly). جميع الحقوق محفوظة.</p>
+    </footer>
+  </div>
+
+  <script>
+    const d = new Date();
+    document.getElementById('d').textContent =
+      d.toLocaleDateString('ar-EG', { year:'numeric', month:'long', day:'numeric' });
+    document.getElementById('y').textContent = d.getFullYear();
+  </script>
+</body>
+</html>
